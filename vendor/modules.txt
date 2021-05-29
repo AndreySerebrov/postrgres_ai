@@ -1,0 +1,3 @@
+# github.com/golang/mock v1.5.0
+## explicit
+github.com/golang/mock/gomock
