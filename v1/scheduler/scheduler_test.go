@@ -58,7 +58,7 @@ func Test_3BadTasks_2GoodTask_2Threads(t *testing.T) {
 
 	for i := 0; i < 2; i++ {
 		task := NewMockTask(mockCtrl)
-		task.EXPECT().Do(gomock.Any()).MinTimes(0).MaxTimes(2).Return(nil)
+		task.EXPECT().Do(gomock.Any()).MinTimes(0).MaxTimes(1).Return(nil)
 		taskList = append(taskList, task)
 	}
 
@@ -90,7 +90,7 @@ func Test_3BadTasks_2GoodTask_2Threads_DifferentDuration(t *testing.T) {
 
 	for i := 0; i < 2; i++ {
 		task := NewMockTask(mockCtrl)
-		task.EXPECT().Do(gomock.Any()).MinTimes(0).MaxTimes(2).DoAndReturn(
+		task.EXPECT().Do(gomock.Any()).MinTimes(0).MaxTimes(1).DoAndReturn(
 			func(ctx context.Context) error {
 				select {
 				case <-ctx.Done():
